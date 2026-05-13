@@ -484,6 +484,9 @@ input[type="date"] { color-scheme: var(--color-scheme); }
 }
 
 .material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
   font-size: 20px;
   width: 20px;
   height: 20px;
@@ -491,6 +494,15 @@ input[type="date"] { color-scheme: var(--color-scheme); }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ── Modal ── */
