@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <title>Todoz</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#0F172A" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Todoz" />
+</head>
+<body>
+  <!-- Celestial Background -->
+  <div class="bg-particles" id="particles"></div>
+  <div class="celestial-bg"></div>
+  <div class="nebula-layer"></div>
+  <div class="grid-overlay"></div>
+
+  <div class="stars-container" aria-hidden="true">
+    <div class="star s1"></div><div class="star s2"></div><div class="star s3"></div>
+    <div class="star s4"></div><div class="star s5"></div><div class="star s6"></div>
+    <div class="star s7"></div><div class="star s8"></div><div class="star s9"></div>
+    <div class="star s10"></div><div class="star s11"></div><div class="star s12"></div>
+    <div class="star s13"></div><div class="star s14"></div><div class="star s15"></div>
+  </div>
+
+  <div class="shooting-stars" aria-hidden="true">
+    <div class="shooting-star ss1"></div>
+    <div class="shooting-star ss2"></div>
+    <div class="shooting-star ss3"></div>
+  </div>
+
+  <div class="moon-theme" aria-hidden="true">
+    <div class="moon"></div><div class="moon-glow"></div>
+    <div class="stars-small">
+      <div class="star-dot s1"></div><div class="star-dot s2"></div><div class="star-dot s3"></div>
+      <div class="star-dot s4"></div><div class="star-dot s5"></div><div class="star-dot s6"></div>
+      <div class="star-dot s7"></div><div class="star-dot s8"></div>
+    </div>
+    <div class="twinkle-stars">
+      <div class="twinkle t1"></div><div class="twinkle t2"></div><div class="twinkle t3"></div>
+      <div class="twinkle t4"></div><div class="twinkle t5"></div>
+    </div>
+  </div>
+
+  <div class="sun-theme" aria-hidden="true">
+    <div class="sun"></div>
+    <div class="sun-rays">
+      <div class="ray ray1"></div><div class="ray ray2"></div><div class="ray ray3"></div>
+      <div class="ray ray4"></div><div class="ray ray5"></div><div class="ray ray6"></div>
+      <div class="ray ray7"></div><div class="ray ray8"></div>
+    </div>
+    <div class="sun-clouds">
+      <div class="cloud cloud1"></div><div class="cloud cloud2"></div><div class="cloud cloud3"></div>
+    </div>
+    <div class="floating-particles">
+      <div class="particle-sun p1"></div><div class="particle-sun p2"></div>
+      <div class="particle-sun p3"></div><div class="particle-sun p4"></div>
+    </div>
+  </div>
+
+  <app-root></app-root>
+  <script>
+    (function() {
+      var container = document.getElementById('particles');
+      if (container) {
+        var colors = ['#7c3aed', '#ec4899', '#06b6d4', '#10b981', '#f59e0b'];
+        for (var i = 0; i < 35; i++) {
+          var p = document.createElement('div');
+          p.className = 'particle';
+          p.style.cssText =
+            'left:' + (Math.random()*100) + '%;' +
+            'width:' + (2 + Math.random()*4) + 'px;' +
+            'height:' + (2 + Math.random()*4) + 'px;' +
+            'background:' + colors[Math.floor(Math.random()*colors.length)] + ';' +
+            'opacity:' + (.15 + Math.random()*.35) + ';' +
+            'animation-delay:' + (Math.random()*25) + 's;' +
+            'animation-duration:' + (18 + Math.random()*20) + 's;';
+          container.appendChild(p);
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

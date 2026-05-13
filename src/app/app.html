@@ -1,0 +1,72 @@
+<div class="app-shell">
+  <!-- Sidebar Overlay -->
+  @if (sidebarOpen()) {
+    <div class="sidebar-overlay" (click)="sidebarOpen.set(false)"></div>
+  }
+
+  <!-- Sidebar -->
+  <aside class="sidebar glass" [class.open]="sidebarOpen()">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="material-icons logo-icon">check_circle</span>
+        <span class="logo-text">Todoz</span>
+      </div>
+      <span class="logo-sub">peaceful productivity</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      @for (item of navItems; track item.path) {
+        <a
+          class="nav-item"
+          [routerLink]="item.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: item.path === '' }"
+          (click)="sidebarOpen.set(false)"
+          [attr.aria-label]="item.label"
+        >
+          <span class="material-icons nav-icon">{{ item.icon }}</span>
+          <span class="nav-label">{{ item.label }}</span>
+        </a>
+      }
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="theme-btn" (click)="toggleTheme()">
+        <span class="material-icons">{{ theme() === 'dark' ? 'light_mode' : 'dark_mode' }}</span>
+        <span>{{ theme() === 'dark' ? 'Light Mode' : 'Dark Mode' }}</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Area -->
+  <main class="main-area">
+    <header class="top-bar glass">
+      <button class="menu-btn" (click)="sidebarOpen.set(true)" aria-label="Open menu">
+        <span class="material-icons">menu</span>
+      </button>
+      <span class="top-bar-title">Todoz</span>
+      <button class="theme-btn-small" (click)="toggleTheme()" attr.aria-label="Toggle {{ theme() }} mode">
+        <span class="material-icons">{{ theme() === 'dark' ? 'light_mode' : 'dark_mode' }}</span>
+      </button>
+    </header>
+
+    <div class="content-area">
+      <router-outlet />
+    </div>
+
+    <!-- Bottom Tab Navigation (Mobile) -->
+    <nav class="bottom-nav glass">
+      @for (item of navItems; track item.path) {
+        <a
+          class="bottom-nav-item"
+          [routerLink]="item.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: item.path === '' }"
+        >
+          <span class="material-icons bottom-nav-icon">{{ item.icon }}</span>
+          <span class="bottom-nav-label">{{ item.label }}</span>
+        </a>
+      }
+    </nav>
+  </main>
+</div>
