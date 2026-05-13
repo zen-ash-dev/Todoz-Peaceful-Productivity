@@ -16,6 +16,13 @@
       "resources": {
         "files": ["/**/*.svg", "/**/*.png", "/**/*.ico"]
       }
+    },
+    {
+      "name": "fonts",
+      "installMode": "prefetch",
+      "resources": {
+        "files": ["/fonts/*.woff2", "/fonts/*.css"]
+      }
     }
   ]
 }
